@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Badr Aghrouch – Portfolio cybersécurité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f5f7;--surface:#fff;--ink:#14202e;--muted:#52606f;--line:#d5dbe3;--accent:#1f5fbf;--accent2:#00a3a3;--soft:#e4edfb;--mark:#b26a00;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b121b;--surface:#131e2b;--ink:#e6ebf2;--muted:#9aa8b8;--line:#243448;--accent:#7db0ff;--accent2:#4fd1c5;--soft:#1a2a42;--mark:#f0b45a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b121b;--surface:#131e2b;--ink:#e6ebf2;--muted:#9aa8b8;--line:#243448;--accent:#7db0ff;--accent2:#4fd1c5;--soft:#1a2a42;--mark:#f0b45a;color-scheme:dark}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;transition:background .3s,color .3s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--bg);padding:8px 14px;border-radius:6px;z-index:50}
+.skip:focus{left:8px}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:40}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:60px}
+.logo{font-weight:600;text-decoration:none;color:var(--ink);margin-right:auto}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+nav a{display:block;padding:8px 12px;border-radius:6px;color:var(--muted);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--ink);background:var(--soft)}
+nav a.on{color:var(--accent);background:var(--soft)}
+.ib{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:50%;cursor:pointer;font-size:18px}
+.ib:hover{border-color:var(--accent)}
+#menu{display:none}
+.hero{position:relative;padding:84px 0 60px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto;height:120%;z-index:-1;background:radial-gradient(circle at 20% 20%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 45%),radial-gradient(circle at 85% 10%,color-mix(in srgb,var(--accent2) 20%,transparent),transparent 40%);animation:drift 14s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;opacity:.45;-webkit-mask-image:linear-gradient(#000,transparent 85%);mask-image:linear-gradient(#000,transparent 85%)}
+@keyframes drift{to{transform:translate3d(3%,6%,0) scale(1.08)}}
+h1{font-size:clamp(42px,8vw,80px);line-height:1.02;margin:0 0 16px;font-weight:600;letter-spacing:-.03em}
+.role{font:500 clamp(16px,2.2vw,20px)/1.4 "IBM Plex Mono",ui-monospace,monospace;color:var(--accent);margin:0 0 18px;min-height:1.5em}
+.role::after{content:"▍";animation:blink 1s steps(1) infinite;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+.lead{font-size:clamp(19px,2.4vw,24px);line-height:1.45;max-width:30em;margin:0 0 30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border:1.5px solid var(--accent);border-radius:8px;text-decoration:none;font:500 16px "IBM Plex Sans",sans-serif;background:transparent;color:var(--accent);cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:var(--soft)}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn.primary:hover{background:var(--accent);filter:brightness(1.1)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:0;overflow:hidden}
+.facts div{padding:18px 20px;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts dt{font:500 13px/1.3 "IBM Plex Mono",ui-monospace,monospace;color:var(--muted);margin:0 0 4px}
+.facts dd{margin:0;font-weight:500}
+.hl{color:var(--mark)}
+section{border-top:1px solid var(--line);padding:56px 0;display:grid;grid-template-columns:190px 1fr;gap:12px 40px}
+section>h2{font-size:15px;font-weight:600;margin:6px 0 0;color:var(--muted)}
+section p{margin:0 0 14px;max-width:38em}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+.skills{display:grid;gap:14px;margin:0}
+.skills div{display:grid;grid-template-columns:190px 1fr;gap:6px 20px}
+.skills dt{font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span,.tags li{font:400 13px/1 "IBM Plex Mono",ui-monospace,monospace;background:var(--soft);color:var(--accent);padding:7px 10px;border-radius:5px;transition:transform .2s}
+.chips span:hover{transform:translateY(-2px)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0;padding:0;list-style:none}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.fl{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);font:500 14px "IBM Plex Sans",sans-serif;cursor:pointer}
+.fl[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.proj{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:0 0 14px;transition:border-color .2s,transform .2s}
+.proj:hover{border-color:var(--accent);transform:translateY(-2px)}
+.proj[hidden]{display:none}
+.proj>button{width:100%;text-align:left;padding:18px 20px;background:none;border:0;color:inherit;font:inherit;cursor:pointer;display:flex;gap:14px;align-items:center;justify-content:space-between;border-radius:12px}
+.proj h3{font-size:18px;margin:0 0 2px;font-weight:600}
+.proj .sum{color:var(--muted);font-size:15px;margin:0}
+.chev{transition:transform .3s;flex:none;color:var(--accent)}
+.proj>button[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.more.open{grid-template-rows:1fr}
+.more>div{overflow:hidden;padding:0 20px}
+.more.open>div{padding-bottom:18px}
+.more dl{margin:0;font-size:15px}.more dt{font-weight:600;margin-top:6px}.more dd{margin:0;color:var(--muted)}
+.item{padding:0 0 22px;margin:0 0 22px;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0;margin:0;padding:0}
+.item h3{font-size:19px;margin:0 0 4px;font-weight:600}
+.meta{font-size:15px;color:var(--muted);margin:0 0 6px}
+.result{font-weight:500;color:var(--mark)}
+ul.plain{margin:0;padding:0;list-style:none}
+ul.plain li{padding:0 0 12px}
+form{display:grid;gap:14px;max-width:34em;margin-top:22px}
+label{font-weight:500;font-size:15px;display:grid;gap:6px}
+input,textarea{font:inherit;padding:11px 13px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+input:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+.err{color:#d6453d;font-size:14px;min-height:1.2em;font-weight:400}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:15px}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:8px;opacity:0;pointer-events:none;transition:.3s;z-index:60;font-size:15px}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#up{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));opacity:0;pointer-events:none;transition:.3s;z-index:25}
+#up.show{opacity:1;pointer-events:auto}
+@media (max-width:760px){
+#menu{display:grid}
+nav{position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);display:none;padding:8px 24px 14px}
+nav.open{display:block}
+nav ul{flex-direction:column}
+section{grid-template-columns:1fr;padding:40px 0}
+.skills div{grid-template-columns:1fr}
+.facts div{border-right:0;border-bottom:1px solid var(--line)}.facts div:last-child{border-bottom:0}
+.hero{padding:52px 0 40px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div id="bar" aria-hidden="true"></div>
+<header class="top"><div class="wrap">
+<a class="logo" href="#top">Badr Aghrouch</a>
+<nav id="nav" aria-label="Navigation principale"><ul>
+<li><a href="#apropos">À propos</a></li><li><a href="#competences">Compétences</a></li><li><a href="#projets">Projets</a></li><li><a href="#competitions">Compétitions</a></li><li><a href="#formation">Formation</a></li><li><a href="#contact">Contact</a></li>
+</ul></nav>
+<button class="ib" id="theme" type="button" aria-label="Changer de thème">◐</button>
+<button class="ib" id="menu" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">☰</button>
+</div></header>
+
+<main id="main">
+<div class="hero" id="top"><div class="wrap">
+<h1>Badr Aghrouch</h1>
+<p class="role" id="role" aria-live="off">Détection d’intrusions</p>
+<p class="lead">Étudiant ingénieur en cybersécurité. Je comprends l’attaquant pour mieux défendre.</p>
+<div class="cta">
+<a class="btn primary" href="#contact">Me contacter</a>
+<a class="btn" href="https://github.com/badr2004">Voir mon GitHub</a>
+</div>
+<dl class="facts">
+<div><dt>MACC2026 (DGSSI)</dt><dd><span class="hl">2<sup>e</sup> de l’université</span>, <span data-n="486">486</span><sup>e</sup> sur <span data-n="3162">3162</span></dd></div>
+<div><dt>Défis résolus</dt><dd><span data-n="90">90</span> % au MACC2026</dd></div>
+<div><dt>Diplôme d’ingénieur</dt><dd>UIR, prévu en 2027</dd></div>
+</dl>
+</div></div>
+
+<div class="wrap">
+<section id="apropos" class="rv">
+<h2>À propos</h2>
+<div>
+<p>Je suis en 5<sup>e</sup> année d’ingénierie en cybersécurité à l’Université Internationale de Rabat (UIR). J’ai commencé par la pratique, bien avant l’école, et je continue à m’entraîner en compétition.</p>
+<p>Mon approche relie la défense et l’attaque : j’utilise des outils de détection (Suricata, Wazuh, ELK) et je teste les systèmes comme le ferait un attaquant (Nmap, Burp Suite, Metasploit).</p>
+<p>Objectif : un premier poste d’analyste cybersécurité, au sein d’un SOC. Disponible après l’obtention du diplôme, en 2027.</p>
+</div>
+</section>
+
+<section id="competences" class="rv">
+<h2>Compétences</h2>
+<dl class="skills">
+<div><dt>Détection et supervision</dt><dd class="chips"><span>Suricata</span><span>Wazuh</span><span>ELK</span><span>Splunk</span><span>Wireshark</span></dd></div>
+<div><dt>Vulnérabilités et intrusion</dt><dd class="chips"><span>OpenVAS</span><span>Nmap</span><span>Burp Suite</span><span>Metasploit</span></dd></div>
+<div><dt>Systèmes et réseaux</dt><dd class="chips"><span>Linux (Red Hat, Debian, Kali)</span><span>Windows Server</span><span>Cisco Packet Tracer</span><span>Durcissement</span></dd></div>
+<div><dt>Cloud</dt><dd class="chips"><span>AWS (sécurité)</span><span>Azure</span></dd></div>
+<div><dt>Programmation</dt><dd class="chips"><span>Python</span><span>Bash</span><span>C/C++</span><span>Java</span><span>PHP</span></dd></div>
+</dl>
+</section>
+
+<section id="projets" class="rv">
+<h2>Projets</h2>
+<div>
+<div class="filters" role="group" aria-label="Filtrer les projets">
+<button class="fl" type="button" data-f="all" aria-pressed="true">Tous</button>
+<button class="fl" type="button" data-f="det" aria-pressed="false">Détection</button>
+<button class="fl" type="button" data-f="net" aria-pressed="false">Réseau</button>
+<button class="fl" type="button" data-f="cloud" aria-pressed="false">Cloud et IA</button>
+</div>
+<article class="proj" data-c="det"><button type="button" aria-expanded="false"><span><h3>Détection d’intrusions : Suricata et machine learning</h3><p class="sum">Pipeline ML/DL en Python pour détecter les intrusions réseau.</p></span><span class="chev" aria-hidden="true">▾</span></button>
+<div class="more"><div><dl><dt>Mon rôle</dt><dd>Projet d’équipe : j’ai proposé l’approche technique.</dd><dt>Outils</dt><dd>Suricata, Python, ML/DL</dd></dl></div></div></article>
+<article class="proj" data-c="net"><button type="button" aria-expanded="false"><span><h3>Architecture réseau sécurisée</h3><p class="sum">Infrastructure sécurisée sur du matériel réel.</p></span><span class="chev" aria-hidden="true">▾</span></button>
+<div class="more"><div><dl><dt>Ce que j’ai fait</dt><dd>Mise en place de l’infrastructure, application des principes de sécurité des protocoles et durcissement des systèmes.</dd><dt>Contexte</dt><dd>Matériel réel, pas seulement de la simulation.</dd></dl></div></div></article>
+<article class="proj" data-c="cloud"><button type="button" aria-expanded="false"><span><h3>MoodleMate, assistant IA académique</h3><p class="sum">Chatbot fondé sur la génération augmentée par récupération.</p></span><span class="chev" aria-hidden="true">▾</span></button>
+<div class="more"><div><dl><dt>Approche</dt><dd>RAG pour interroger des contenus de cours.</dd><dt>Outils</dt><dd>LangChain, embeddings HuggingFace</dd></dl></div></div></article>
+<article class="proj" data-c="cloud"><button type="button" aria-expanded="false"><span><h3>Application cloud-native d’analyse audio</h3><p class="sum">Déploiement full-stack sur Azure.</p></span><span class="chev" aria-hidden="true">▾</span></button>
+<div class="more"><div><dl><dt>Approche</dt><dd>Intégration de services d’IA dans une application déployée sur Azure.</dd><dt>Outils</dt><dd>Azure, services d’IA</dd></dl></div></div></article>
+</div>
+</section>
+
+<section id="competitions" class="rv">
+<h2>Compétitions</h2>
+<div>
+<article class="item"><h3>MACC2026, organisé par la DGSSI</h3><p class="meta">Concours national de cybersécurité</p><p><span class="result">2<sup>e</sup> de mon université, 486<sup>e</sup> sur 3162.</span> 90 % des défis résolus.</p></article>
+<article class="item"><h3>CTF universitaire</h3><p class="meta">En solo</p><p><span class="result">5<sup>e</sup> place.</span> Cryptographie, reverse engineering, web, forensics.</p></article>
+</div>
+</section>
+
+<section id="formation" class="rv">
+<h2>Formation</h2>
+<div>
+<article class="item"><h3>Université Internationale de Rabat (UIR)</h3><p class="meta">Cycle ingénieur en cybersécurité, de 2024 à 2027 (diplôme prévu)</p></article>
+<article class="item"><h3>Universiapolis Agadir</h3><p class="meta">Cycle préparatoire d’ingénieur, de 2022 à 2024</p></article>
+<article class="item"><h3>Formations professionnelles</h3>
+<ul class="plain">
+<li>Red Hat System Administration I (RH124), 40 h, juin 2026 · <a href="https://www.credly.com/badges/c7ed5cf0-f822-44a2-94b2-445adefb4563">vérifier</a></li>
+<li>Red Hat System Administration II (RH134), 40 h, juin 2026 · <a href="https://www.credly.com/badges/9cd431cc-7143-495d-8a6c-fc8058dca8a5">vérifier</a></li>
+<li>AWS Academy, Cloud Security Foundations, 20 h, octobre 2026 · <a href="https://www.credly.com/go/t2vJzCN8">vérifier</a></li>
+</ul></article>
+<article class="item"><h3>Langues</h3><p class="meta">Arabe (langue maternelle) · Anglais (B2, certifié) · Français (B2)</p></article>
+</div>
+</section>
+
+<section id="contact" class="rv">
+<h2>Contact</h2>
+<div>
+<p>Disponible pour un entretien. Écrivez-moi, je réponds rapidement.</p>
+<div class="row">
+<button class="btn" id="copy" type="button">Copier l’e-mail</button>
+<a class="btn" href="tel:+212613774287">Appeler</a>
+<a class="btn" href="https://github.com/badr2004">GitHub</a>
+</div>
+<form id="cf" novalidate>
+<label>Nom<input id="fn" autocomplete="name" required><span class="err" id="e1"></span></label>
+<label>E-mail<input id="fe" type="email" autocomplete="email" required><span class="err" id="e2"></span></label>
+<label>Message<textarea id="fm" rows="4" required></textarea><span class="err" id="e3"></span></label>
+<div><button class="btn primary" type="submit">Envoyer par e-mail</button></div>
+</form>
+</div>
+</section>
+</div>
+</main>
+
+<footer><div class="wrap">© 2026 Badr Aghrouch · Rabat, Maroc</div></footer>
+<button class="ib" id="up" type="button" aria-label="Retour en haut">↑</button>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+var d=document,r=d.documentElement,$=function(s){return d.querySelector(s)},$$=function(s){return Array.prototype.slice.call(d.querySelectorAll(s))};
+r.classList.add('js');
+var rm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+function toast(t){var e=$('#toast');e.textContent=t;e.classList.add('show');setTimeout(function(){e.classList.remove('show')},2200)}
+/* thème */
+try{var s=localStorage.getItem('theme');if(s)r.setAttribute('data-theme',s)}catch(e){}
+$('#theme').onclick=function(){var dark=r.getAttribute('data-theme')==='dark'||(!r.getAttribute('data-theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches);var n=dark?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}toast(n==='dark'?'Mode nuit':'Mode jour')};
+/* menu mobile */
+var nav=$('#nav'),mb=$('#menu');
+mb.onclick=function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
+$$('#nav a').forEach(function(a){a.onclick=function(){nav.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+/* progression + retour en haut */
+function sc(){var h=r.scrollHeight-innerHeight;$('#bar').style.width=(h>0?scrollY/h*100:0)+'%';$('#up').classList.toggle('show',scrollY>600)}
+addEventListener('scroll',sc,{passive:true});sc();
+$('#up').onclick=function(){scrollTo({top:0,behavior:rm?'auto':'smooth'})};
+/* lien actif */
+if('IntersectionObserver' in window){
+var links={};$$('#nav a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a});
+var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){Object.keys(links).forEach(function(k){links[k].classList.toggle('on',k===e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+$$('section').forEach(function(x){so.observe(x)});
+/* apparition */
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.12});
+$$('.rv').forEach(function(x){ro.observe(x)});
+}else{$$('.rv').forEach(function(x){x.classList.add('in')})}
+/* compteurs */
+function count(el){var t=+el.getAttribute('data-n');if(rm){el.textContent=t;return}var s=null;function f(ts){if(!s)s=ts;var p=Math.min((ts-s)/1200,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+$$('[data-n]').forEach(count);
+/* texte rotatif */
+var words=['Détection d’intrusions','Évaluation de vulnérabilités','Sécurité offensive'],wi=0,ci=0,del=false,re=$('#role');
+function type(){var w=words[wi];if(rm){re.textContent=w;return}ci+=del?-1:1;re.textContent=w.slice(0,ci);var t=del?35:70;if(!del&&ci===w.length){del=true;t=1600}else if(del&&ci===0){del=false;wi=(wi+1)%words.length;t=300}setTimeout(type,t)}
+type();
+/* filtre projets */
+$$('.fl').forEach(function(b){b.onclick=function(){$$('.fl').forEach(function(x){x.setAttribute('aria-pressed',x===b)});var f=b.getAttribute('data-f');$$('.proj').forEach(function(p){p.hidden=!(f==='all'||p.getAttribute('data-c')===f)})}});
+/* accordéon */
+$$('.proj>button').forEach(function(b){b.onclick=function(){var m=b.nextElementSibling,o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)}});
+/* copier l’e-mail */
+$('#copy').onclick=function(){var m='badraghrouch@gmail.com';if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(function(){toast('E-mail copié')},function(){toast(m)})}else{toast(m)}};
+/* formulaire */
+$('#cf').onsubmit=function(ev){ev.preventDefault();var n=$('#fn').value.trim(),e=$('#fe').value.trim(),m=$('#fm').value.trim(),ok=true;
+function chk(id,er,bad,msg){$(er).textContent=bad?msg:'';if(bad)ok=false}
+chk('#fn','#e1',n.length<2,'Indiquez votre nom.');
+chk('#fe','#e2',!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e),'Indiquez une adresse e-mail valide.');
+chk('#fm','#e3',m.length<10,'Écrivez un message d’au moins 10 caractères.');
+if(!ok)return;
+var a=d.createElement('a');a.href='mailto:badraghrouch@gmail.com?subject='+encodeURIComponent('Contact via portfolio – '+n)+'&body='+encodeURIComponent(m+'\n\n'+n+' ('+e+')');d.body.appendChild(a);a.click();a.remove();toast('Ouverture de votre messagerie')};
+})();
+</script>
+</body>
+</html>
